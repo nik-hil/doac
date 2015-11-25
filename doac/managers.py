@@ -12,12 +12,12 @@ class CustomManager(models.Manager):
         Forwards methods called on the manager to its query set.
         """
         
-        return getattr(self.get_query_set(), name)
+        return getattr(self.get_queryset(), name)
 
 
 class AccessTokenManager(CustomManager):
     
-    def get_query_set(self):
+    def get_queryset(self):
         return AccessTokenQuerySet(self.model)
 
 
@@ -41,7 +41,7 @@ class AccessTokenQuerySet(QuerySet):
 
 class AuthorizationCodeManager(CustomManager):
     
-    def get_query_set(self):
+    def get_queryset(self):
         return AuthorizationCodeQuerySet(self.model)
 
 
@@ -65,7 +65,7 @@ class AuthorizationCodeQuerySet(QuerySet):
 
 class AuthorizationTokenManager(CustomManager):
     
-    def get_query_set(self):
+    def get_queryset(self):
         return AuthorizationTokenQuerySet(self.model)
 
 
@@ -86,7 +86,7 @@ class AuthorizationTokenQuerySet(QuerySet):
 
 class ClientManager(CustomManager):
     
-    def get_query_set(self):
+    def get_queryset(self):
         return ClientQuerySet(self.model)
 
 
@@ -104,7 +104,7 @@ class ClientQuerySet(QuerySet):
 
 class RedirectUriManager(CustomManager):
     
-    def get_query_set(self):
+    def get_queryset(self):
         return RedirectUriQuerySet(self.model)
 
 
@@ -119,7 +119,7 @@ class RedirectUriQuerySet(QuerySet):
 
 class RefreshTokenManager(CustomManager):
     
-    def get_query_set(self):
+    def get_queryset(self):
         return RefreshTokenQuerySet(self.model)
 
 
@@ -143,7 +143,7 @@ class RefreshTokenQuerySet(QuerySet):
 
 class ScopeManager(CustomManager):
     
-    def get_query_set(self):
+    def get_queryset(self):
         return ScopeQuerySet(self.model)
 
 
